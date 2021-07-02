@@ -1,9 +1,8 @@
 <?php
 include 'class.agenda.php';
+$datos = array('Cedula'=>'', 'Nombre'=>'', 'Genero'=>'', 'Password'=>'', 'Direccion'=>'');
+$accion = 'insert';
 include 'edicion.php';
-
-$datos = array();
-
 /*include 'class.conexion.php';
 
 $bd= new conexion();
@@ -20,18 +19,28 @@ $bd= new conexion();
 </head>
 <body>
 <FORM action="registro.php" method="POST">
-            Cedula: <input type="text" name="txtCedula"> <br/>
-            Nombre: <input type="text" name="txtNombre"> <br/>
-            Clave: <input type="text" name="txtClave"> <br/>
+            Cedula: <input type="text" name="txtCedula" value="<?php echo $datos['Cedula']?>"> <br/>
+            Nombre: <input type="text" name="txtNombre" value="<?php echo $datos['Nombre']?>"> <br/>
+            Clave: <input type="text" name="txtClave" value="<?php echo $datos['Password']?>"> <br/>
 			Genero: 
-				<select name="cmbGenero">
-					<option value="Masculino">Masculino</option>
-					<option value="Femenino">Femenino</option>
+				<select name="cmbGenero" default="<?php echo $datos['Genero']?>">
+                    <?php if($datos['Genero'] == 'Masculino'){
+                        echo '<option value="Masculino" selected>Masculino</option>
+                              <option value="Femenino">Femenino</option>';
+                    }
+                    else if($datos['Genero'] == 'Femenino') {
+                        echo '<option value="Masculino">Masculino</option>
+                              <option value="Femenino" selected>Femenino</option>';
+                    }
+                    else{
+                        echo'<option value="Masculino">Masculino</option>
+                        <option value="Femenino">Femenino</option>';
+                    }?>
 				</select> </br>
 			
-			Dirección: <input type="text" name="txtDireccion"> <br/>
-            <input type="hidden" name="accion" value="insert">
-			<input type="submit" value="registro" name="submit"> <br/>	
+			Dirección: <input type="text" name="txtDireccion" value="<?php echo $datos['Direccion']?>"> <br/>
+            <input type="hidden" name="accion" value="<?php echo $accion?>">
+			<input type="submit" value="Enviar" name="submit"> <br/>	
 
 		</FORM>
 

@@ -10,7 +10,6 @@
     $agenda = Agenda::instancia();
 
     $datos = $agenda->select();
-
     while($row = $datos->fetch_array()){
         echo '<tr>';
         echo '<td>',$row['Cedula'],'</td>';
