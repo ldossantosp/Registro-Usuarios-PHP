@@ -3,6 +3,7 @@ include 'class.agenda.php';
 $datos = array('Cedula'=>'', 'Nombre'=>'', 'Genero'=>'', 'Password'=>'', 'Direccion'=>'');
 $accion = 'insert';
 include 'edicion.php';
+echo $accion;
 /*include 'class.conexion.php';
 
 $bd= new conexion();
@@ -19,7 +20,7 @@ $bd= new conexion();
 </head>
 <body>
 <FORM action="registro.php" method="POST">
-            Cedula: <input type="text" name="txtCedula" value="<?php echo $datos['Cedula']?>"> <br/>
+            Cedula: <input type="text" name="txtCedula" value="<?php echo $datos['Cedula']?>" <?php if($accion=='update') echo 'disabled'?>> <br/>
             Nombre: <input type="text" name="txtNombre" value="<?php echo $datos['Nombre']?>"> <br/>
             Clave: <input type="text" name="txtClave" value="<?php echo $datos['Password']?>"> <br/>
 			Genero: 
