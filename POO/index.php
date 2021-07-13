@@ -35,7 +35,7 @@ $bd= new conexion();
                     }
                     else{
                         echo'<option value="Masculino">Masculino</option>
-                        <option value="Femenino">Femenino</option>';
+                            <option value="Femenino">Femenino</option>';
                     }?>
 				</select> </br>
 			
